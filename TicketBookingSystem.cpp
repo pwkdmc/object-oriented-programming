@@ -173,6 +173,9 @@ public:
 		std::cout << "\033[31mСоздана BookingSystem\033[0m\n";
 	}
 	~BookingSystem() {
+		for (Ticket* ticket : tickets) {
+			delete ticket;
+		}
 		std::cout << "\033[31mУдален BookingSystem\033[0m\n";
 	}
 	void AddTicket(Ticket* ticket) {
