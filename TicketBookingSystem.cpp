@@ -303,7 +303,6 @@ void TicketBookingSystem() {
 				do {
 					std::cout << "Введите дату (ДД.ММ.ГГГГ):\n";
 					std::getline(std::cin, date);
-
 					if (!IsValidDate(date)) {
 						std::cout << "ОШИБКА: Неверный формат даты! Используйте ДД.ММ.ГГГГ\n";
 						continue;
@@ -314,14 +313,12 @@ void TicketBookingSystem() {
 					std::cout << "Введите базовую цену:\n";
 					std::cin >> base_price;
 					std::cin.ignore(10000, '\n');
-
 					if (std::cin.fail()) {
 						std::cin.clear();
 						std::cin.ignore(10000, '\n');
 						std::cout << "ОШИБКА: Введите число\n";
 						continue;
 					}
-
 					if (base_price <= 0) {
 						std::cout << "ОШИБКА: Цена должна быть положительной\n";
 						continue;
@@ -370,12 +367,6 @@ void TicketBookingSystem() {
 						break;
 					} while (true);
 					booking_system.AddTicket(new MovieTicket(date, base_price, movie_name, hall, row, seat));
-					if (RepeatTask()) {
-						continue;
-					}
-					else {
-						break;
-					}
 				}
 				else if (issue_number == 2) {
 					std::string flight_number, service_class;
@@ -404,12 +395,6 @@ void TicketBookingSystem() {
 						break;
 					} while (true);
 					booking_system.AddTicket(new FlightTicket(date, base_price, flight_number, service_class, baggage_weight));
-					if (RepeatTask()) {
-						continue;
-					}
-					else {
-						break;
-					}
 				}
 				else if (issue_number == 3) {
 					std::string train_number, seat_type;
@@ -439,23 +424,11 @@ void TicketBookingSystem() {
 						break;
 					} while (true);
 					booking_system.AddTicket(new TrainTicket(date, base_price, train_number, carriage_number, seat_type));
-					if (RepeatTask()) {
-						continue;
-					}
-					else {
-						break;
-					}
 				}
 			}
 			else if (issue_number == 4) {
 				booking_system.ShowAllTickets();
 				booking_system.ShowTotalRevenue();
-				if (RepeatTask()) {
-					continue;
-				}
-				else {
-					break;
-				}
 			}
 			else if (issue_number == 5) {
 				booking_system.ShowAllTickets();
@@ -464,25 +437,19 @@ void TicketBookingSystem() {
 				std::cin >> ticket_num;
 				std::cin.ignore(10000, '\n');
 				booking_system.CancelBooking(ticket_num);
-				if (RepeatTask()) {
-					continue;
-				}
-				else {
-					break;
-				}
 			}
 			else if (issue_number == 6) {
 				booking_system.ShowTotalRevenue();
-				if (RepeatTask()) {
-					continue;
-				}
-				else {
-					break;
-				}
 			}
 			else {
 				std::cout << "ОШИБКА: Выберите пункт от 0 до 6\n";
+				break;
+			}
+			if (RepeatTask()) {
 				continue;
+			}
+			else {
+				break;
 			}
 		} while (issue_number != 0);
 	} while (issue_number != 0);
