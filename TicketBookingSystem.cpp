@@ -188,7 +188,6 @@ public:
 			std::cout << "Нет добавленных билетов\n";
 			return;
 		}
-		std::cout << "= СПИСОК ВСЕХ БИЛЕТОВ =\n";
 		for (Ticket* ticket : tickets) {
 			std::cout << ticket->GetDescription() << "\n";
 		}
@@ -202,11 +201,9 @@ public:
 			if ((*it)->Refund()) {
 				delete* it;
 				tickets.erase(it);
-				std::cout << "Бронирование отменено\n";
 				return true;
 			}
 			else {
-				std::cout << "Невозможно отменить бронирование\n";
 				return false;
 			}
 		}
