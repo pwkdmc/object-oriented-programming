@@ -402,7 +402,6 @@ void TicketBookingSystem() {
 						std::cout << "Введите номер вагона:\n";
 						std::cin >> carriage_number;
 						std::cin.ignore(10000, '\n');
-
 						if (std::cin.fail() || carriage_number <= 0) {
 							std::cin.clear();
 							std::cin.ignore(10000, '\n');
