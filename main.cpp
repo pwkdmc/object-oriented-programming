@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include "TicketBookingSystem.hpp"
-#include "SalaryCalculationSystem.hpp"
-#include "ATMSimulator.hpp"
+#include "TicketBookingSystem.h"
+#include "SalaryCalculationSystem.h"
+#include "ATMSimulator.h"
 
 int main()
 {

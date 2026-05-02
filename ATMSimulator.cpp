@@ -5,7 +5,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <sstream>
-#include "TicketBookingSystem.hpp"
+#include "TicketBookingSystem.h"
 
 class InvalidPinException : public std::exception {
 public:
